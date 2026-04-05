@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy birthday keboooo!</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.svg" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    <div class="section active" id="section1">
+      <div class="container">
+        <h1>
+          Happpyyyy birthdayyy bocil menyebalkan Venza Almahyra Putri Halis
+        </h1>
+        <img
+          src="./assets/images/sijelek.jpeg"
+          alt="foto mahyra"
+          class="cute-image framed" />
+        <h2>kebo kecil</h2>
+        <audio id="sound" loop="true" autoplay>
+          <source src="./assets/audio/sempurna.mp3" type="audio/mpeg" />
+        </audio>
+        <div class="kawaii-text">ฅ^•ﻌ•^ฅ</div>
+        <div class="kawaii-text">Tekan nextt ci imut</div>
+        <button class="button" onclick="nextSection()">Next!! ^w^</button>
+      </div>
+    </div>
+    <div class="section" id="section2">
+      <div class="container">
+        <img
+          src="./assets/images/siimut.jpeg"
+          alt="foto mahyra"
+          class="cute-image" />
+        <h2>PENCET OPEN JANGAN NGEYEL!!!◞</h2>
+        <button class="button" onclick="openEnvelope()">Open ♥♥♥</button>
+        <button class="button no-button" onclick="showCrying()">
+          No &gt;:
+        </button>
+      </div>
+    </div>
+    <div class="section crying-section" id="section3">
+      <div class="container">
+        <img
+          src="./assets/images/sijelek.jpeg"
+          alt="sijelek"
+          class="cute-image" />
+        <div class="kawaii-text">BOCIL NGEYELLLLL!!!</div>
+        <button class="button" onclick="tryAgain()">Kembaliii</button>
+      </div>
+    </div>
+    <div class="section" id="section4">
+      <div class="container">
+        <h2>Pesannnkuu untukk kamu si paling ngeyel &lt;3</h2>
+        <h2>ALOOO DIKK</h2>
+        <img
+          src="./assets/images/sikuat.jpeg"
+          alt="foto mahyra"
+          class="cute-image" />
+        <div class="love-message">
+          Haaappppppyyyyy birthdayyyyy BOCILLL selamatt ulang tahun yang ke 15
+          y♥♥♥ Kamu sekarang udah nambah gede walaupun masih belum jadi anak ITS
+          si 🤣🤣 Aku pengin bilang kalo aku tu bangga banget sama kamu karena
+          kamu bisa sampe di titik sekarang ini ♥♥♥ Aku tau kamu suka berlagak
+          sok kuat seolah ga terjadi apa apa padahal aslinya ga baik baik
+          aja😔😔 Tapi sekarang kan kamu udah gede gapapa jangan malu lagi atau
+          ga enak buat bergantung ke orang lain 😤😤 Kamu bisa cerita ke aku
+          atau ke siapapun yang menurut kamu yang penting jangan memaksakan diri
+          lagi okaii?? ❤️❤️❤️ Oiya kamu udah gede juga jadi kamu harusnya tau
+          cara menjaga kesehatan dan juga jaga diri, jangan buat aku khawatir
+          lagi okaii??🥰🥰🥰
+          <br /><br />
+          Maaf yaa kalau ucapan Selamat Ulang Tahun dari aku simple banget :)
+          Aku bakal berusaha lebih baikk lagi untuk kedepannya ♥♥♥
+          <br /><br />
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener(
+        "click",
+        function () {
+          const audio = document.getElementById("sound");
+          audio.volume = 0.5;
+          audio.play();
+        },
+        { once: true },
+      ); // Hanya butuh satu klik
+      let currentSection = 1;
+      const totalSections = 4;
+
+      function showSection(sectionNumber) {
+        // Hide all sections
+        for (let i = 1; i <= totalSections; i++) {
+          document.getElementById(`section${i}`).classList.remove("active");
+        }
+        // Show current section
+        document
+          .getElementById(`section${sectionNumber}`)
+          .classList.add("active");
+        currentSection = sectionNumber;
+      }
+
+      function nextSection() {
+        showSection(2);
+      }
+
+      function openEnvelope() {
+        showSection(4);
+      }
+
+      function showCrying() {
+        showSection(3);
+      }
+
+      function tryAgain() {
+        showSection(2);
+      }
+
+      function startOver() {
+        showSection(1);
+      }
+
+      // Create floating hearts
+      function createFloatingHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "♥";
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        heart.style.fontSize = Math.random() * 10 + 15 + "px";
+
+        document.getElementById("floatingHearts").appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+
+      // Create hearts every 2 seconds
+      setInterval(createFloatingHeart, 2000);
+
+      // Add some initial hearts
+      for (let i = 0; i < 5; i++) {
+        setTimeout(createFloatingHeart, i * 400);
+      }
+    </script>
+  </body>
+</html>
